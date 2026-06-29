@@ -624,3 +624,27 @@ client.login(TOKEN).catch(err => {
 
   process.exit(1);
 });
+
+// ============================================
+// Keep-alive HTTP server for Render free tier (24/7 hack)
+// Render free web services sleep after ~15 min of no traffic.
+// This server listens on the PORT provided by Render.
+// Use UptimeRobot (free) to ping /health every 5 minutes to keep it awake.
+// ============================================
+const http = require('http');
+
+const PORT = process.env.PORT || 3000;
+
+const server = http.createServer((req, res) => {
+  if (req.url === '/health' || req.url === '/') {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('OK - Lo Bot Tomee is running');
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not found');
+  }
+});
+
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`[Keepalive] Health server listening on port ${PORT}`);
+});
