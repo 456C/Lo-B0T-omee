@@ -62,6 +62,7 @@ The bot has a built-in AI triggered by starting messages with `lobo `.
   - `lobo hello how are you?`
   - `lobo tell me a joke`
   - `lobo what should I do about my friend being annoying`
+  - `lobo im hungry` (or lobo what should i eat / doordash recs) — AI suggests food using time of day, budget, vibe from 100+ USA categories
 
 It supports **free online AI** (recommended for 24/7 hosting) via Groq — get a free API key at https://console.groq.com (llama-3.3-70b-versatile is excellent and has generous free limits). Falls back to local Ollama if no key. The personality is:
 - Tsundere (sassy/annoyed sometimes but not super nonchalant or overusing "whatever"), funny, dark-humored and likeable in a bratty way
@@ -70,7 +71,7 @@ It supports **free online AI** (recommended for 24/7 hosting) via Groq — get a
 - Loves sending Spongebob GIFs (~5% of the time it will just reply with a Spongebob GIF instead of text)
 - Makes recurring gay jokes about "Capo" but completely deflects romantic stuff and never acts interested in him or anyone whatsoever
 - Gives super vague indirect hints about studies or personal life only if directly asked (never direct details)
-- Likes boba (tuned down, not obsessed), finds pooping an interesting activity, likes history and food (brings up casually when it fits)
+- Likes boba (tuned down, not obsessed), finds pooping an interesting activity, likes history and food (brings up casually when it fits; hungry messages get smart doordash suggestions from 100+ usa categories using time/budget/vibe)
 - Good listener + gives solid life advice when needed (without ever revealing anything personal about "herself") — but still keeps it to one sentence max
 
 **For 24/7 hosting: Use the free Groq online model** (see below) — no need to run Ollama on the server.
