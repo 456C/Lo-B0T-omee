@@ -262,6 +262,60 @@ Other options: Koyeb (free tier), Fly.io.
 
 **Groq Free Limits Note**: The free tier on Groq is quite generous for a personal bot. If you hit limits, lobo commands will temporarily fail (the rest of the bot keeps working).
 
+## Grok xBuild - Fast Iteration + Cloud Deploy Workflow
+
+This setup lets you rapidly iterate with me:
+
+1. You describe what to change or add (e.g. "iterate: add a command that does X" or "fix the greeting to be funnier").
+2. I edit the code directly.
+3. I commit and push the changes.
+4. The cloud host automatically detects the push, deploys the new version, and restarts the bot.
+5. Your 24/7 hosted bot is updated with the changes (usually in 1-3 minutes).
+
+### One-time Setup (Required)
+
+**A. Initialize and push to GitHub**
+
+In your terminal (in the project folder):
+
+```powershell
+git remote add origin https://github.com/YOUR_USERNAME/lo-bot-tomee.git
+git branch -M main
+git push -u origin main
+```
+
+(First create the repo on GitHub with the same name, public or private.)
+
+**B. Connect to a cloud host with auto-deploy**
+
+**Recommended: Railway (great for Discord bots)**
+
+1. Go to [railway.app](https://railway.app), sign in with GitHub.
+2. New Project → Deploy from GitHub repo.
+3. Select your repo.
+4. It will deploy.
+5. Go to Variables tab and add:
+   - `DISCORD_TOKEN`
+   - `GROQ_API_KEY`
+   - `TARGET_USER_ID` (optional)
+
+Railway will auto-deploy on every future push.
+
+**Alternative: Render.com** (as described in the Hosting section above).
+
+Once connected, every time I push, it redeploys automatically.
+
+### How to Iterate
+
+Just tell me things like:
+- "iterate: add support for Threads links"
+- "make the lobo personality more sassy"
+- "add a cooldown to the anonymous command"
+
+I will make the code changes, commit, and push. The cloud version updates automatically.
+
+This keeps your bot live 24/7 in the cloud while we rapidly build and test.
+
 ## How it works
 
 - On every `messageCreate`, scans for URLs.
