@@ -1,0 +1,18 @@
+# Lo Bot Tomee - Trigger Words Config
+# 
+# Add one trigger word or phrase per line.
+# - Not case sensitive
+# - Ignores spaces AND punctuation (only a-z0-9 matter for matching)
+# - Example: "hello world" matches "helloworld", "hello-world!", "H E L L O   W O R L D"
+# - If a user's message contains any trigger, the bot will repeat (echo) their exact message.
+# - 15 second cooldown per user to prevent spam.
+#
+# Examples (remove or edit these):
+
+hello
+iloveyou
+lobottomee
+iamabot
+nuhuh
+nuuuhh
+nuhuhh
